@@ -9,11 +9,11 @@ let player = {
 function createPlayer(ctx) {
   var img = new Image();   // Create new img element
   img.onload = function() {
-    ctx.drawImage(img, 50, home.height - player.height);
+    ctx.drawImage(img, 150, home.height - player.height *2);
   };
-  img.src = 'ozge.png'; // Set source path
+  img.src = 'jory.png'; // Set source path
 }
 
 function animatePlayer() {
-  
+
 }
