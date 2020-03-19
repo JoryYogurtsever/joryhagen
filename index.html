@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <title>Jory Hagen - Front End Developer</title>
+    <meta content="Jory Web Developer">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      #myCanvas {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    <script type="text/javascript" src="drawHome.js"></script>
+    <script type="text/javascript" src="controls.js"></script>
+    <script type="text/javascript" src="player.js"></script>    
+    <script type="application/javascript">
+      function draw2() {
+        var canvas = document.getElementById('myCanvas');
+        canvas.height = window.innerHeight;
+        canvas.width = window.innerWidth;
+        if (canvas.getContext) {
+          var ctx = canvas.getContext('2d');
+          ctx.font = '20px Times New Roman';
+          ctx.fillStyle = 'Black';
+          ctx.fillText("hello", 300, 300);
+          var img = new Image();   // Create new img element
+          img.onload = function() {
+            ctx.drawImage(img, 50, 50);
+          };
+          img.src = 'ozge.png'; // Set source path
+          // drawing code here
+        } else {
+          // canvas-unsupported code here
+        }
+      }
+    </script>
+  </head>
+  <body  onload="drawHome();">
+    <canvas id="myCanvas"></canvas>
+  </body>
+</html>
