@@ -1,8 +1,10 @@
 window.addEventListener('keydown', (e) => {
     switch (e.code){
       case 'Space':
-        player.jumping = true;
-        player.grounded = false;
+        if (groundCheck()) {
+          player.jumping = true;
+          player.grounded = false;
+        }
         break;
       case 'ArrowLeft':
         player.isMovingLeft = true;
@@ -11,6 +13,8 @@ window.addEventListener('keydown', (e) => {
       case 'ArrowRight':
         player.isMovingLeft = false;
         player.walking = true;
+      case 'Enter':
+        home.isAnimating = false;
       default:
         return;
     }
@@ -29,5 +33,14 @@ window.addEventListener('keyup', (e) => {
 })
 
 window.addEventListener('resize', () => {
-  drawHome();
+  console.log(player)
+  canvas.height = home.height - 20;
+  canvas.width = document.body.clientWidth - 20;
+  if (!player.created) {
+    createPlayer(ctx);
+  }
+  if (home.isAnimating) {
+    animateHome();
+    home.isAnimating = false;
+  }
 })
