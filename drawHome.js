@@ -4,7 +4,7 @@ function drawHomeInitial() {
       canvas.height = home.height - 20;
       canvas.width = document.body.clientWidth - 20;
       ctx = canvas.getContext('2d');
-      drawClouds()
+      drawClouds(20)
       ctx.font = `20px "${FONT_NAME}"`;
       ctx.textAlign = 'center';
       ctx.textBaseline = 'middle';
@@ -31,8 +31,8 @@ function drawHomeInitial() {
   document.fonts.load('10pt "Press Start 2P"').then(renderText);
 }
 
-function drawClouds() {
-  for (i = 0; i < 20; i++) {
+function drawClouds(num) {
+  for (i = 0; i < num; i++) {
     clouds.push({
       left: Math.floor(Math.random() * document.body.clientWidth - 200) + 80,
       top: Math.floor(Math.random() * home.height - 200) + 80,
@@ -43,8 +43,7 @@ function drawClouds() {
       ctx.drawImage(cloud, myCloud.left, myCloud.top);
     }
   }
-  cloud.src = 'cloud.png';
-  console.log(clouds)
+  cloud.src = 'cloud.png'
 }
 
 function animateClouds() {

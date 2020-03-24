@@ -1,4 +1,5 @@
 const FONT_NAME = 'Press Start 2P';
+let activeScene = "home"
 
 let canvas
 let ctx
@@ -10,6 +11,10 @@ var walkingPlayer2Left = new Image();
 var jumpingPlayer = new Image();
 var jumpingPlayerLeft = new Image();
 var cloud = new Image();
+var aboutMePipe = new Image();
+var contactMePipe = new Image();
+var projectsPipe = new Image();
+var groundTile = new Image();
 
 let clouds = []
 
@@ -113,6 +118,24 @@ let home = {
   ]
 }
 
+let pipes = [
+  {
+    pipe: aboutMePipe,
+    top: 150,
+    left: window.innerWidth - 163,
+  },
+  {
+    pipe: projectsPipe,
+    top: home.height/2,
+    left: window.innerWidth - 163,
+  },
+  {
+    pipe: contactMePipe,
+    top: home.height - 140,
+    left: window.innerWidth - 163,
+  },
+]
+
 let player = {
   created: false,
   isMovingLeft: true,
@@ -124,11 +147,11 @@ let player = {
   walking: false,
   jumping: false,
   grounded: true,
-  height: 86,
+  height: 64,
   positionX: 300,
   positionY: (home.height - 100 *2 - 400),
   velocityY: 0,
   speed: 6,
   jumpSpeed: -20,
-  width: 100,
+  width: 64,
 }
