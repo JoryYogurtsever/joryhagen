@@ -1,6 +1,7 @@
 window.addEventListener('keydown', (e) => {
     switch (e.code){
       case 'Space':
+        e.preventDefault()
         if (groundCheck()) {
           player.jumping = true;
           player.grounded = false;

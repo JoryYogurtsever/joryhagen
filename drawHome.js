@@ -57,6 +57,7 @@ function animateClouds() {
 // IMPORTANT ^^^^^^^
 
 function animateHome() {
+  console.log("home looping")
   ctx.font = `20px "${FONT_NAME}"`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
@@ -65,11 +66,13 @@ function animateHome() {
   for (platform of home.platforms) {
     ctx.fillText(platform.text, platform.left + (platform.text.length * home.fontWidth / 2), platform.top);
   }
-  for (myCloud in clouds) {
-    ctx.drawImage(cloud, myCloud.left, myCloud.top);
-  }
+  // for (myCloud in clouds) {
+  //   ctx.drawImage(cloud, myCloud.left, myCloud.top);
+  // }
   animatePlayer()
-  window.requestAnimationFrame(animateHome)
+  if (activeScene === 'home') {
+    window.requestAnimationFrame(animateHome)
+  }
 }
 
 async function sleep(time) {
@@ -94,4 +97,25 @@ async function writeText(string, left, height) {
     }
   }
   await myLoop();
+}
+
+function changeScene() {
+  console.log(activeScene)
+  switch (activeScene) {
+    case 'home':
+      drawHomeInitial()
+      break
+    case 'about':
+      drawAboutInitial()
+      break
+    case 'projects':
+      drawProjectsInitial()
+      break
+    case 'contact':
+      drawContactInitial()
+      break
+    default:
+      drawHomeInitial()
+      return
+  }
 }
