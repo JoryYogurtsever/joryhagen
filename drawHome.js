@@ -57,7 +57,6 @@ function animateClouds() {
 // IMPORTANT ^^^^^^^
 
 function animateHome() {
-  console.log("home looping")
   ctx.font = `20px "${FONT_NAME}"`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';

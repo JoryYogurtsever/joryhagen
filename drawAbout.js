@@ -1,7 +1,6 @@
 function drawAboutInitial() {
       canvas.height = about.height - 20;
       canvas.width = document.body.clientWidth - 20;
-      console.log("about loop")
       ctx.clearRect(0, 0, window.innerWidth, about.height)
       clouds = []
       signs = []
@@ -28,7 +27,6 @@ function animateAbout() {
   ctx.font = `20px "${FONT_NAME}"`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
-  console.log('looping about')
   ctx.clearRect(0, 0, window.innerWidth, about.height)
   animateClouds()
   for (myCloud in clouds) {
@@ -65,23 +63,6 @@ function drawModal() {
     ctx.fillText(about.lines[line7], about.modal.textmiddle, about.modal.top + 400)
     ctx.drawImage(about.image.source, about.image.left, about.image.top);
   }
-  // ctx.fillText(about.lines[7], about.modal.textmiddle, about.modal.top + 318)
-  // ctx.fillText(about.lines[8], about.modal.textmiddle, about.modal.top + 332)
-  // ctx.fillText(about.lines[9], about.modal.textmiddle, about.modal.top + 346)
-  // ctx.fillText(about.lines[10], about.modal.textmiddle, about.modal.top + 360)
-  // ctx.fillText(about.lines[11], about.modal.textmiddle, about.modal.top + 374)
-  // ctx.fillText(about.lines[12], about.modal.textmiddle, about.modal.top + 388)
-  // ctx.fillText(about.lines[13], about.modal.textmiddle, about.modal.top + 402)
-  // ctx.fillText(about.lines[14], about.modal.textmiddle, about.modal.top + 416)
-  // ctx.fillText(about.lines[15], about.modal.textmiddle, about.modal.top + 430)
-  // ctx.fillText(about.lines[16], about.modal.textmiddle, about.modal.top + 444)
-  // ctx.fillText(about.lines[17], about.modal.textmiddle, about.modal.top + 458)
-  // ctx.fillText(about.lines[18], about.modal.textmiddle, about.modal.top + 472)
-
-  // ctx.lineWidth = "6";
-  // ctx.strokeStyle = "orange";
-  // ctx.rect(about.modal.left, about.modal.top, about.modal.width, about.modal.height);
-  // ctx.stroke();
 }
 
 function drawSigns(num, images) {

@@ -116,6 +116,12 @@ function groundCheck() {
 function signCheck() {
   for (let i = 0; i < signs.length; i++) {
     if (player.positionX > signs[i].left - 32  && player.positionX < signs[i].left + 32) {
+      if (activeScene === "contact" && !contact.formAdded) {
+        document.getElementById('contact-form').classList.add('contact-form-display');
+        document.getElementById('contact-form').classList.remove('contact-form-hidden');
+        contact.formAdded = true
+        return true
+      }
       about.image.source = signs[i].image
       line1 = 0 + 7*i
       line2 = 1 + 7*i
@@ -126,6 +132,11 @@ function signCheck() {
       line7 = 6 + 7*i
       return true
     }
+  }
+  if (activeScene === "contact" && contact.formAdded) {
+    document.getElementById('contact-form').classList.add('contact-form-hidden');
+    document.getElementById('contact-form').classList.remove('contact-form-display');
+    contact.formAdded = false;
   }
   return false
 }
