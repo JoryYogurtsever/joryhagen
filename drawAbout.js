@@ -14,9 +14,10 @@ function drawAboutInitial() {
         textmiddle: window.innerWidth/2 - 0.5 * window.innerWidth/8,
         left: 0.5 * window.innerWidth/8,
         top: 2.5 * window.innerHeight/8,
-        height: 5.5 * window.innerHeight/8,
+        height: 6 * window.innerHeight/8,
         width: 6 * window.innerWidth/8,
       }
+      resizeAboutText()
       drawSigns(3, [about1, about2, about3])
       window.scrollTo(0, 10);
       createPlayer()
@@ -24,7 +25,7 @@ function drawAboutInitial() {
 }
 
 function animateAbout() {
-  ctx.font = `20px "${FONT_NAME}"`;
+  // ctx.font = `16px "${FONT_NAME}"`;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'middle';
   ctx.clearRect(0, 0, window.innerWidth, about.height)
@@ -35,7 +36,7 @@ function animateAbout() {
   animateSigns()
   drawModal()
   animatePlayer()
-    if (activeScene === 'about') {
+    if (activeScene === 'about' && (player.jumping || player.walking || !player.grounded)) {
       window.requestAnimationFrame(animateAbout)
   }
 }
@@ -53,7 +54,8 @@ function drawModal() {
     ctx.rect(about.modal.left, about.modal.top, about.modal.width, about.modal.height);
     ctx.fill();
     ctx.fillStyle = "#000000";
-    ctx.font = `16px "${FONT_NAME}"`;
+    // ctx.font = `16px "${FONT_NAME}"`;
+    console.log(about.image.left)
     ctx.fillText(about.lines[line1], about.modal.textmiddle, about.modal.top + 220)
     ctx.fillText(about.lines[line2], about.modal.textmiddle, about.modal.top + 250)
     ctx.fillText(about.lines[line3], about.modal.textmiddle, about.modal.top + 280)
@@ -79,5 +81,19 @@ function drawSigns(num, images) {
 function animateSigns() {
   for (sign of signs) {
     ctx.drawImage(signImage, sign.left, sign.top);
+  }
+}
+
+function resizeAboutText() {
+  if (document.body.clientWidth - 20 > 1000) {
+    console.log("x-large")
+    ctx.font = `12px "${FONT_NAME}"`;
+  } else if (1000 >= document.body.clientWidth - 20 && document.body.clientWidth - 20 > 800) {
+    console.log("large")
+    ctx.font = `10px "${FONT_NAME}"`;
+  } else if (800 > document.body.clientWidth - 20 && document.body.clientWidth - 20 > 600) {
+    console.log("medium")
+    ctx.font = `7px "${FONT_NAME}"`;
+    about.image.left = window.innerWidth/2 - about1.width + 1.5 * window.innerWidth/8;
   }
 }

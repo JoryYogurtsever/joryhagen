@@ -20,9 +20,14 @@ var about1 = new Image();
 var about2 = new Image();
 var about3 = new Image();
 var signImage = new Image();
+var projects1 = new Image();
+var projects2 = new Image();
+var projects3 = new Image();
+var linkBrick = new Image();
 
 let clouds = []
 let signs = []
+let linkBricks = []
 
 let about = {
   height: 800,
@@ -42,7 +47,7 @@ let about = {
     "Developer for 2 years. I have been a digital nomad for the",
     "past 4 years. In 2015 I went to Ankara, Turkey on a university",
     "exchange program. That's where I met my girlfriend, since",
-    "then we've lived in many place. First we moved to Taiwan, and",
+    "then we've lived in many places. First we moved to Taiwan, and",
     "taught ESL, then we moved to Cambodia. I taught myself web",
     "development in 2017 using a Vue.js stack. Shortly after I",
     "found a job as a React Developer. I have been working since",
@@ -66,6 +71,8 @@ let contact = {
 let projects = {
   height: 800,
   modalLines: 10,
+  jumpingAnimation: false,
+  jumpingAnimationDone: false,
   lines: [
     "This is the main website of the company I work for currently",
     "The Attractiveman.com. We recently did a style revamp of the",
@@ -105,8 +112,8 @@ let home = {
     },
     {
       text: "I AM A FRONT END DEVELOPER",
-      left: 500,
-      top: 200,
+      left: 420,
+      top: 150,
     },
     {
       text: "WITH 2 YEARS EXPERIENCE",
@@ -125,7 +132,7 @@ let home = {
     },
     {
       text: "AND PROVIDING TECHNICAL",
-      left: 600,
+      left: 500,
       top: 600,
     },
     {
@@ -140,8 +147,8 @@ let home = {
     },
     {
       text: "WORDPRESS,",
-      left: 800,
-      top: 900,
+      left: 100,
+      top: 850,
     },
     {
       text: "ECOMMERCE AND ANALYTIC",
@@ -153,16 +160,6 @@ let home = {
       left: 500,
       top: 1100,
     },
-    // {
-    //   text: "I AM ALSO THE",
-    //   left: 600,
-    //   top: 1200,
-    // },
-    // {
-    //   text: "OWNER/CREATOR OF PIXOPIXA GAMES!",
-    //   left: 500,
-    //   top: 1300,
-    // },
     {
       text: "USE THIS CHARACTER TO",
       left: 100,
@@ -170,7 +167,7 @@ let home = {
     },
     {
       text: "NAVIGATE THE PAGE!",
-      left: 500,
+      left: 420,
       top: 1300,
     },
     {
@@ -207,7 +204,7 @@ let pipes = [
   {
     name: "contact",
     pipe: contactMePipe,
-    top: home.height - 192,
+    top: home.height - 412,
     left: window.innerWidth - 163,
   },
 ]

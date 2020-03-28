@@ -27,6 +27,19 @@
         border: 10px ridge orange;
         background-color: #578FFC;
       }
+      .change-version-button {
+        font-family: 'Press Start 2P', cursive;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        font-size: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #fff;
+        border: 5px ridge orange;
+        background-color: orange;
+        border-radius: 10px;
+      }
       .contact-form-hidden{
         display: none;
       }
@@ -68,7 +81,48 @@
         top: 30%;
         left: 30%;
       }
+      .h1{
+        font-family: 'Courier New', serif;
+      }
+      .h2{
+        font-family: 'Courier New', serif;
+
+      }
+      .paragraph{
+        font-family: 'Courier New', serif;
+      }
+      .center {
+        text-align: center;
+      }
+      .row-6-sm {
+        padding: 15px;
+        width: 50%;
+        left: 25%;
+        position: relative;
+        background-color: rgba(220,220,220,0.8);
+        border-radius: 30px;
+      }
+      @media (max-width: 768px) {
+        .row-6-sm {
+          width: 100%;
+        }
+      }
+      .classic-body {
+        background: url(mangrove.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      .center-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        border-radius: 15px;
+      }
     </style>
+    <script type="text/javascript" src="classicWebsite.js"></script>
     <script type="text/javascript" src="drawHome.js"></script>
     <script type="text/javascript" src="drawAbout.js"></script>
     <script type="text/javascript" src="drawContact.js"></script>
@@ -76,28 +130,30 @@
     <script type="text/javascript" src="controls.js"></script>
     <script type="text/javascript" src="player.js"></script>
     <script type="text/javascript" src="levelValues.js"></script>
-    <script type="text/javasctipt">
-    </script>
   </head>
-  <body  onload="drawHomeInitial();">
-    <canvas id="myCanvas"></canvas>
-    <div class="contact-form-hidden" id="contact-form">
-      <div class="form-div">
-        <input class="contact-form-input" type="text" id="form-name" placeholder="name"></input>
-        <p class="hidden error" id="name-error">Please include your name</p>
+  <body onload="drawHomeInitial();">
+    <p id="myP"></p>
+    <div id="convas-container">
+      <canvas id="myCanvas"></canvas>
+      <button class="change-version-button" id="change-version-button" onclick="changeToClassic();">&lt; HTML /&gt;</button>
+      <div class="contact-form-hidden" id="contact-form">
+        <div class="form-div">
+          <input class="contact-form-input" type="text" id="form-name" placeholder="name"></input>
+          <p class="hidden error" id="name-error">Please include your name</p>
+        </div>
+        <div class="form-div">
+          <input class="contact-form-input" type="email" id="form-email" placeholder="email"></input>
+          <p class="hidden error" id="email-error">Please provide a valid email</p>
+        </div>
+        <div class="form-div">
+          <textarea class="contact-form-input" type="text" id="form-message" placeholder="message" rows="7" cols="20"></textarea>
+          <p class="hidden error" id="message-error">Message cannot be blank</p>
+        </div>
+        <div class="form-div">
+          <button class="contact-form-button" onclick="handleSubmit();">SUBMIT</button>
+        </div>
       </div>
-      <div class="form-div">
-        <input class="contact-form-input" type="email" id="form-email" placeholder="email"></input>
-        <p class="hidden error" id="email-error">Please provide a valid email</p>
-      </div>
-      <div class="form-div">
-        <textarea class="contact-form-input" type="text" id="form-message" placeholder="message" rows="7" cols="20"></textarea>
-        <p class="hidden error" id="message-error">Message cannot be blank</p>
-      </div>
-      <div class="form-div">
-        <button class="contact-form-button" onclick="handleSubmit();">SUBMIT</button>
-      </div>
+      <p class="hidden success" id="contact-form-success">Thanks for your message!</p>
     </div>
-    <p class="hidden success" id="contact-form-success">Thanks for your message!</p>
   </body>
 </html>

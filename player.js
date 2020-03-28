@@ -37,6 +37,10 @@ function createPlayer() {
   about3.src = 'about3-medium.jpg';
   signImage.src = 'sign.png';
   player.created = true;
+  projects1.src = 'tamcom1.png';
+  projects2.src = 'tamco1.png';
+  projects3.src = 'pixopixa1.png';
+  linkBrick.src = 'link-brick.png';
 }
 
 function groundCheck() {
@@ -48,6 +52,9 @@ function groundCheck() {
   } else if (player.jumping) {
     player.positionY += player.jumpSpeed;
     player.velocityY = player.jumpSpeed;
+    if (activeScene === "projects" && about.modalOpen) {
+      projects.jumpingAnimation = true
+    }
     player.jumping = false;
     return false
   } else if ((player.velocityY >= 0)) {
@@ -116,12 +123,16 @@ function groundCheck() {
 function signCheck() {
   for (let i = 0; i < signs.length; i++) {
     if (player.positionX > signs[i].left - 32  && player.positionX < signs[i].left + 32) {
+      if (player.velocityY <= 0 && player.jumping && activeScene === "projects") {
+        projects.jumpingAnimation = true
+      }
       if (activeScene === "contact" && !contact.formAdded) {
         document.getElementById('contact-form').classList.add('contact-form-display');
         document.getElementById('contact-form').classList.remove('contact-form-hidden');
         contact.formAdded = true
         return true
       }
+      about.activeSign = i;
       about.image.source = signs[i].image
       line1 = 0 + 7*i
       line2 = 1 + 7*i
@@ -175,7 +186,23 @@ function animatePlayer() {
   }
   // Move Player Vertically //
   // Falling if ungrounded //
-  if (groundCheck() === false) {
+  if (projects.jumpingAnimation) {
+    if (player.positionY + player.velocityY <= (linkBricks[0].top + 64)) {
+      player.velocityY = 0;
+      linkBricks[about.activeSign].top -= 8;
+      projects.jumpingAnimation = false;
+      setTimeout(() => {
+        linkBricks[about.activeSign].top += 8;
+      }, 300)
+      setTimeout(() => {
+        projects.jumpingAnimationDone = true
+      }, 500)
+      return
+    }
+    player.positionY += player.jumpSpeed;
+    player.velocityY = player.jumpSpeed;
+    return
+  } else if (groundCheck() === false) {
     player.positionY += player.velocityY
     player.velocityY += home.gravity
   }

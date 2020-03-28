@@ -22,7 +22,7 @@ function animateContact() {
     ctx.drawImage(cloud, myCloud.left, myCloud.top);
   }
   animatePlayer()
-    if (activeScene === 'contact') {
+    if (activeScene === 'contact' && (player.jumping || player.walking || !player.grounded)) {
       window.requestAnimationFrame(animateContact)
   }
 }
