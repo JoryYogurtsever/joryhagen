@@ -3,8 +3,9 @@ function drawHomeInitial() {
       canvas = document.querySelector('canvas')
       canvas.height = home.height - 20;
       canvas.width = document.body.clientWidth - 20;
-      console.log(document.body.clientWidth - 20)
-      console.log(window.innerWidth)
+      if (canvas !== null && canvas.width <= 600) {
+        addTouchListeners()
+      }
       ctx = canvas.getContext('2d');
       resizeHomeText()
       drawClouds(20)
@@ -27,7 +28,6 @@ function drawHomeInitial() {
       } else {
         createPlayer()
       }
-      // window.scrollTo(0, home.height - player.height *2 + 200);
       animateHome()
       home.isAnimating = false;
   }
@@ -56,22 +56,14 @@ function animateClouds() {
   cloud.src = 'cloud.png';
 }
 
-// element.clientHeight is the pixels you see in your Browsers
-// IMPORTANT ^^^^^^^
 
 function animateHome() {
-  // ctx.font = `20px "${FONT_NAME}"`;
-  // ctx.textAlign = 'center';
-  // ctx.textBaseline = 'middle';
   ctx.clearRect(0, 0, window.innerWidth, home.height)
   animateClouds()
   for (platform of home.platforms) {
     ctx.fillText(platform.text, platform.left + (platform.text.length * home.fontWidth / 2), platform.top);
   }
-  // for (myCloud in clouds) {
-  //   ctx.drawImage(cloud, myCloud.left, myCloud.top);
-  // }
-  animatePlayer()
+    animatePlayer()
   if (activeScene === 'home') {
     window.requestAnimationFrame(animateHome)
   }
@@ -153,5 +145,32 @@ function resizeHomeText() {
       home.platforms[12].left = 20;
       home.platforms[14].left = 10;
       home.platforms[15].left = 10;
+    } else if (document.body.clientWidth - 20 < 600) {
+      console.log("small")
+      ctx.font = `12px "${FONT_NAME}"`;
+      home.fontWidth = 12;
+      home.platforms[0].left = 10;
+      home.platforms[1].left = 10;
+      home.platforms[2].left = 10;
+      home.platforms[3].left = 50;
+      home.platforms[4].left = 10;
+      home.platforms[5].left = 10;
+      home.platforms[6].left = 10;
+      home.platforms[7].left = 50;
+      home.platforms[8].left = 10;
+      home.platforms[9].left = 10;
+      home.platforms[10].left = 50;
+      home.platforms[11].left = 10;
+      home.platforms[12].left = 30;
+      home.platforms[13].left = 10;
+      home.platforms[13].top = 1450;
+      home.platforms[14].left = 10;
+      home.platforms[15].left = 10;
+      home.platforms[15].text = "VISIT THE TOP RIGHT CORNER.";
+      if (document.body.clientWidth - 20 < 350) {
+        home.platforms[1].text = "FRONT END DEVELOPER";
+        home.platforms[1].text = "ASSISTANCE WITH";
+        home.platforms[15].text = "VISIT THE TOP RIGHT.";
+      }
     }
 }

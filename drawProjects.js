@@ -29,23 +29,31 @@ function drawProjectsInitial() {
 
 function animateProjects() {
   // ctx.font = `20px "${FONT_NAME}"`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  if (!projects.jumpingAnimationDone) {
-    ctx.clearRect(0, 0, window.innerWidth, about.height)
-    animateClouds()
-    for (myCloud in clouds) {
-      ctx.drawImage(cloud, myCloud.left, myCloud.top);
-    }
-    animateSigns()
-    drawProjectsModal()
-    animatePlayer()
-    if (activeScene === 'projects' && (player.jumping || player.walking || !player.grounded || projects.jumpingAnimationDone)) {
-      window.requestAnimationFrame(animateProjects)
-    }
-  } else if (projects.jumpingAnimationDone) {
+  if (player.jumping || player.walking || !player.grounded || projects.jumpingAnimationDone) {
+    console.log("projects normal")
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+      ctx.clearRect(0, 0, window.innerWidth, about.height)
+      animateSigns()
+      drawProjectsModal()
+      animatePlayer()
+      about.finalAnimationDone = false;
+  } else if (!about.finalAnimationDone) {
+      console.log("projects final")
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.clearRect(0, 0, window.innerWidth, about.height)
+      animateSigns()
+      drawProjectsModal()
+      animatePlayer()
+      about.finalAnimationDone = true;
+  }
+  if (projects.jumpingAnimationDone) {
     projects.jumpingAnimationDone = false;
     window.location = linkBricks[about.activeSign].url
+  }
+  if (activeScene === 'projects' && !projects.jumpingAnimationDone) {
+    window.requestAnimationFrame(animateProjects)
   }
 }
 
@@ -102,5 +110,73 @@ function resizeProjectsText() {
     console.log("medium")
     ctx.font = `7px "${FONT_NAME}"`;
     about.image.left = window.innerWidth/2 - about1.width + 1.5 * window.innerWidth/8;
+  } else if (document.body.clientWidth - 20 < 600 && document.body.clientWidth - 20 > 350) {
+    console.log("small")
+    ctx.font = `10px "${FONT_NAME}"`;
+    about.image.left = window.innerWidth/16;
+    about.image.top = window.innerHeight/8 + 30;
+    about.modal.top = window.innerHeight/8;
+    about.modal.width = window.innerWidth;
+    about.modal.height = 4.5 * window.innerHeight/8;
+    about.modal.left = 0;
+    about.modal.textmiddle = window.innerWidth/2 - 10;
+    projects.lines = [
+      "This is the main website of the",
+      "company I work for. We recently",
+      "did a style revamp of the site.",
+      "The main site uses both React",
+      "and Wordpress. Part of my job ",
+      "is autoresponders and tracking",
+      "This site has a membership area.",
+      "Our Company also runs several other",
+      "websites, primary amoung them are",
+      "theattractiveman.co & daygametraining",
+      "I've included a link to the former.",
+      "theattractiveman.co has many sales",
+      "funnels and lots of considerations",
+      "when building pages on this site.",
+      "",
+      "Pixopixa.com is my own website.",
+      "The site was running for a while,",
+      "but my buisness model was not",
+      "working. I am now doing a complete",
+      "revamp of the site. This site is",
+      "built with gatsby. I've only put",
+      "up some pages for SEO, right now",
+    ]
+  } else if (document.body.clientWidth - 20 < 350) {
+    console.log("x-small")
+    ctx.font = `8px "${FONT_NAME}"`;
+    about.image.left = window.innerWidth/16;
+    about.image.top = 3.8*window.innerHeight/8;
+    about.modal.top = 3.5*window.innerHeight/8;
+    about.modal.width = window.innerWidth;
+    about.modal.height = 6 * window.innerHeight/8;
+    about.modal.left = 0;
+    about.modal.textmiddle = window.innerWidth/2 - 10;
+    projects.lines = [
+      "This is the main website of the",
+      "company I work for. We recently",
+      "did a style revamp of the site.",
+      "The main site uses both React",
+      "and Wordpress. Part of my job ",
+      "is autoresponders and tracking",
+      "This site has a membership area.",
+      "Our Company also runs several other",
+      "websites, primary amoung them are",
+      "theattractiveman.co & daygametraining",
+      "I've included a link to the former.",
+      "theattractiveman.co has many sales",
+      "funnels and lots of considerations",
+      "when building pages on this site.",
+      "",
+      "Pixopixa.com is my own website.",
+      "The site was running for a while,",
+      "but my buisness model was not",
+      "working. I am now doing a complete",
+      "revamp of the site. This site is",
+      "built with gatsby. I've only put",
+      "up some pages for SEO, right now",
+    ]
   }
 }

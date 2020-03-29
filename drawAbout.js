@@ -26,17 +26,26 @@ function drawAboutInitial() {
 
 function animateAbout() {
   // ctx.font = `16px "${FONT_NAME}"`;
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'middle';
-  ctx.clearRect(0, 0, window.innerWidth, about.height)
-  animateClouds()
-  for (myCloud in clouds) {
-    ctx.drawImage(cloud, myCloud.left, myCloud.top);
+  if (player.jumping || player.walking || !player.grounded) {
+    console.log(player.jumping, player.walking, !player.grounded)
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.clearRect(0, 0, window.innerWidth, about.height)
+    animateSigns()
+    drawModal()
+    animatePlayer()
+    about.finalAnimationDone = false;
+  } else if (!about.finalAnimationDone) {
+    console.log(player.jumping, player.walking, !player.grounded)
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.clearRect(0, 0, window.innerWidth, about.height)
+    animateSigns()
+    drawModal()
+    animatePlayer()
+    about.finalAnimationDone = true;
   }
-  animateSigns()
-  drawModal()
-  animatePlayer()
-    if (activeScene === 'about' && (player.jumping || player.walking || !player.grounded)) {
+  if (activeScene === 'about') {
       window.requestAnimationFrame(animateAbout)
   }
 }
@@ -55,7 +64,6 @@ function drawModal() {
     ctx.fill();
     ctx.fillStyle = "#000000";
     // ctx.font = `16px "${FONT_NAME}"`;
-    console.log(about.image.left)
     ctx.fillText(about.lines[line1], about.modal.textmiddle, about.modal.top + 220)
     ctx.fillText(about.lines[line2], about.modal.textmiddle, about.modal.top + 250)
     ctx.fillText(about.lines[line3], about.modal.textmiddle, about.modal.top + 280)
@@ -70,7 +78,7 @@ function drawModal() {
 function drawSigns(num, images) {
   for (let i=0; i < num; i++) {
     signs[i] = {
-      left: (num/2 * 90*i) + (window.innerWidth/3 - num/2 * 90),
+      left: (num/2 * about.signSpacing*i) + (window.innerWidth/about.signStart - num/2 * about.signSpacing),
       top: about.height - 84,
       image: images[i]
     }
@@ -95,5 +103,71 @@ function resizeAboutText() {
     console.log("medium")
     ctx.font = `7px "${FONT_NAME}"`;
     about.image.left = window.innerWidth/2 - about1.width + 1.5 * window.innerWidth/8;
+  } else if (document.body.clientWidth - 20 < 600 && document.body.clientWidth - 20 > 350) {
+    console.log("small")
+    ctx.font = `10px "${FONT_NAME}"`;
+    about.image.left = window.innerWidth/32;
+    about.image.top = window.innerHeight/8 + 30;
+    about.modal.top = window.innerHeight/8;
+    about.modal.width = window.innerWidth;
+    about.modal.height = 4.5 * window.innerHeight/8;
+    about.modal.left = 0;
+    about.modal.textmiddle = window.innerWidth/2 - 10;
+    about.lines = [
+        "I'm Jory, a 30 year old Front-End",
+        "Developer from Edmonton Canada.",
+        "I have a bachelor's degree from",
+        "the University of Alberta with",
+        "a double major in Physics and",
+        "Mathematics. I have a love of",
+        "puzzles and problem solving, I",
+        "like to write in my free time.",
+        "I've been working as a Front-End",
+        "Developer for 2 years. I've been a",
+        "digital nomad for the past 4 years.",
+        "In 2015 I went to Ankara, Turkey",
+        "on a university exchange program.",
+        "That's where I met my girlfriend,",
+        "since then we've lived in many",
+        "places. First we moved to Taiwan,",
+        "and taught ESL, then we moved to",
+        "Cambodia. I taught myself web",
+        "development in 2017 using a",
+        "Vue.js stack. Shortly after I",
+        "found a job as a React Developer.",
+    ]
+  } else if (document.body.clientWidth - 20 < 350) {
+    console.log("x-small")
+    ctx.font = `8px "${FONT_NAME}"`;
+    about.image.left = window.innerWidth/32;
+    about.image.top = 3.6*window.innerHeight/8;
+    about.modal.top = 3.5 * window.innerHeight/8;
+    about.modal.width = window.innerWidth;
+    about.modal.height = 6 * window.innerHeight/8;
+    about.modal.left = 0;
+    about.modal.textmiddle = window.innerWidth/2 - 10;
+    about.lines = [
+        "I'm Jory, a 30 year old Front-End",
+        "Developer from Edmonton Canada.",
+        "I have a bachelor's degree from",
+        "the University of Alberta with",
+        "a double major in Physics and",
+        "Mathematics. I have a love of",
+        "puzzles and problem solving, I",
+        "like to write in my free time.",
+        "I've been working as a Front-End",
+        "Developer for 2 years. I've been a",
+        "digital nomad for the past 4 years.",
+        "In 2015 I went to Ankara, Turkey",
+        "on a university exchange program.",
+        "That's where I met my girlfriend,",
+        "since then we've lived in many",
+        "places. First we moved to Taiwan,",
+        "and taught ESL, then we moved to",
+        "Cambodia. I taught myself web",
+        "development in 2017 using a",
+        "Vue.js stack. Shortly after I",
+        "found a job as a React Developer.",
+    ]
   }
 }

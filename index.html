@@ -3,6 +3,7 @@
     <meta charset="UTF-8">
     <title>Jory Hagen - Front End Developer</title>
     <meta content="Jory Web Developer">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
       /* press-start-2p-regular - latin */
       @font-face {
@@ -40,6 +41,19 @@
         background-color: orange;
         border-radius: 10px;
       }
+      .change-version-button-classic {
+        font-family: 'Courier New', serif;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        font-size: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #fff;
+        border: 5px ridge #33aaff;
+        background-color: #33aaff;
+        border-radius: 7px;
+      }
       .contact-form-hidden{
         display: none;
       }
@@ -58,6 +72,23 @@
         background-color: orange;
         border-radius: 10px;
         color: white;
+      }
+      .contact-form-input-classic {
+        font-family: 'Courier New', serif;
+        width: 100%
+      }
+      .contact-form-button-classic {
+        font-family: 'Courier New', serif;
+        border: 5px ridge #33aaff;
+        padding: 10px;
+        background-color: #33aaff;
+        border-radius: 7px;
+        color: white;
+      }
+      .success-classic {
+        color: #4BB543;
+        font-size: 20px;
+        font-weight: 700;
       }
       .form-div {
         margin: 10px;
@@ -102,9 +133,18 @@
         background-color: rgba(220,220,220,0.8);
         border-radius: 30px;
       }
-      @media (max-width: 768px) {
+      @media (max-width: 600px) {
         .row-6-sm {
-          width: 100%;
+          width: 90%;
+          left: 5%;
+          padding: 0;
+          margin-top: 50px;
+        }
+        .body-text {
+          margin: 10px;
+        }
+        .contact-form-display {
+          left: 5%;
         }
       }
       .classic-body {
@@ -122,6 +162,7 @@
         border-radius: 15px;
       }
     </style>
+    <script type="text/javascript" src="levelValues.js"></script>
     <script type="text/javascript" src="classicWebsite.js"></script>
     <script type="text/javascript" src="drawHome.js"></script>
     <script type="text/javascript" src="drawAbout.js"></script>
@@ -129,7 +170,6 @@
     <script type="text/javascript" src="drawProjects.js"></script>
     <script type="text/javascript" src="controls.js"></script>
     <script type="text/javascript" src="player.js"></script>
-    <script type="text/javascript" src="levelValues.js"></script>
   </head>
   <body onload="drawHomeInitial();">
     <p id="myP"></p>

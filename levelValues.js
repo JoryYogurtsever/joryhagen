@@ -33,6 +33,9 @@ let about = {
   height: 800,
   modalOpen: false,
   activeSign: 0,
+  finalAnimation: false,
+  signStart: 3,
+  signSpacing: 90,
   image: {
     source: about1,
   },
@@ -99,6 +102,10 @@ let projects = {
 }
 
 let home = {
+  tileSize: 64,
+  pipeOffset: 121,
+  pipeTopCheck: 30,
+  pipeLeftCheck: 158,
   height: 1700,
   fontWidth: 20,
   isAnimating: true,
@@ -181,7 +188,7 @@ let home = {
       top: 1500,
     },
     {
-      text: "VISIT THE DROPDOWN IN THE TOP RIGHT CORNER.",
+      text: "VISIT THE BUTTON IN THE TOP RIGHT CORNER.",
       left: 100,
       top: 1600,
     },
