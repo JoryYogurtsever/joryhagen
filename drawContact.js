@@ -30,7 +30,9 @@ function animateContact() {
     about.finalAnimationDone = true;
   }
     if (activeScene === 'contact') {
-      window.requestAnimationFrame(animateContact)
+      setTimeout(() => {
+        window.requestAnimationFrame(animateContact)
+      }, 1000 / 60 )
   }
 }
 
@@ -65,7 +67,7 @@ function handleSubmit() {
       document.getElementById('contact-form-success').classList.add('hidden');
     }, 3000)
     var xhr = new XMLHttpRequest();
-    xhr.open("POST", 'https://vuejs-http-96a4b.firebaseio.com/comments.json', true);
+    xhr.open("POST", 'https://formsubmit.co/jory@joryhagen.com', true);
     xhr.setRequestHeader('Content-Type', 'application/json');
     xhr.send(JSON.stringify({
       name: name,

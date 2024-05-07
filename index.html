@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Jory Hagen - Front End Developer</title>
+    <title>Jory Hagen - Full Stack Developer</title>
     <meta content="Jory Web Developer">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -175,8 +175,9 @@
     <p id="myP"></p>
     <div id="convas-container">
       <canvas id="myCanvas"></canvas>
-      <button class="change-version-button" id="change-version-button" onclick="changeToClassic();">&lt; HTML /&gt;</button>
+      <div class="change-version-button" id="change-version-button" onclick="changeToClassic();">&lt; HTML /&gt;</div>
       <div class="contact-form-hidden" id="contact-form">
+      <form action="https://formsubmit.co/jory@joryhagen.com" method="POST">
         <div class="form-div">
           <input class="contact-form-input" type="text" id="form-name" placeholder="name"></input>
           <p class="hidden error" id="name-error">Please include your name</p>
@@ -190,10 +191,13 @@
           <p class="hidden error" id="message-error">Message cannot be blank</p>
         </div>
         <div class="form-div">
-          <button class="contact-form-button" onclick="handleSubmit();">SUBMIT</button>
+          <input class="contact-form-button" type="submit" value="SUBMIT"/>
+          <!--button class="contact-form-button" onclick="handleSubmit();"></button-->
         </div>
+        <p>Use your mouse for the form fields</p>
       </div>
       <p class="hidden success" id="contact-form-success">Thanks for your message!</p>
+    </form>
     </div>
   </body>
 </html>

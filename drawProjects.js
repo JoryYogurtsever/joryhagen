@@ -53,7 +53,9 @@ function animateProjects() {
     window.location = linkBricks[about.activeSign].url
   }
   if (activeScene === 'projects' && !projects.jumpingAnimationDone) {
-    window.requestAnimationFrame(animateProjects)
+    setTimeout(() => {
+      window.requestAnimationFrame(animateProjects)
+    }, 1000 / 60 )
   }
 }
 

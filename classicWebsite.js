@@ -23,60 +23,38 @@ async function changeToClassic() {
     <br>
     <div class="row-6-sm">
       <div class="body-text">
-      <h1 class="h1 center">Jory Hagen: Front End Developer</h1>
-        <p class="paragraph">
-        I'm Jory, a 30 year old Front-End Developer from Edmonton
-        Canada. I have a bachelor's degree from the University of
-        Alberta with a double major in Physics and Mathematics. I
-        have a love of puzzles and problem solving, I like to write
-        fiction in my free time. I've been working as a Front-End
-        Developer for 2 years. I have been a digital nomad for the
-        past 4 years. In 2015 I went to Ankara, Turkey on a university
-        exchange program. That's where I met my girlfriend, since
-        then we've lived in many place. First we moved to Taiwan, and
-        taught ESL, then we moved to Cambodia. I taught myself web
-        development in 2017 using a Vue.js stack. Shortly after I
-        found a job as a React Developer. I have been working since
-        then coding React and working with many different technologies.
-        For my job I have had to adapt to a lot of different tasks
-        including working with google analytics, google tag manager,
-        amazon web services and our own dashboard software. I fill
-        the role of both web development and IT support. Working in
-        this role helped me develop skills to quickly and effectively
-        search problems even in software I am not familiar with and
-        provide my team with technical assistance. I learn quickly and
-        on the fly while using precautions to prevent mis-steps.
-        </p>
+      <h1 class="h1 center">Jory Hagen: Full Stack Developer</h1>
       <h2 class="h2 center">About Me:</h2>
         <p class="paragraph">
-          I'm Jory, a 30 year old Front-End Developer from Edmonton
+          I'm Jory, a 34 year old Full Stack Developer from Edmonton
           Canada. I have a bachelor's degree from the University of
           Alberta with a double major in Physics and Mathematics. I
           have a love of puzzles and problem solving, I like to write
-          fiction in my free time. I've been working as a Front-End
-          Developer for 2 years. I have been a digital nomad for the
-          past 4 years. In 2015 I went to Ankara, Turkey on a university
+          fiction in my free time. I've been working as a Web
+          Developer for 6 years. I have been a digital nomad for the
+          past 9 years. In 2015 I went to Ankara, Turkey on a university
           exchange program.
         </p>
         <img class="center-image" src="about1-medium.jpg">
         <p class="paragraph">
-          That's where I met my girlfriend, since
-          then we've lived in many places. First we moved to Taiwan, and
+          That's where I met my wife, since
+          then we've lived in many place. First we moved to Taiwan, and
           taught ESL, then we moved to Cambodia. I taught myself web
           development in 2017 using a Vue.js stack. Shortly after I
           found a job as a React Developer. I have been working since
-          then coding React and working with many different technologies.
+          then coding React and later nodejs, andworking with many 
+          different technologies.
         </p>
         <img class="center-image" src="about-classic-2.jpeg">
         <p class="paragraph">
-          For my job I have had to adapt to a lot of different tasks
-          including working with google analytics, google tag manager,
-          amazon web services and our own dashboard software. I fill
-          the role of both web development and IT support. Working in
-          this role helped me develop skills to quickly and effectively
-          search problems even in software I am not familiar with and
-          provide my team with technical assistance. I learn quickly and
-          on the fly while using precautions to prevent mis-steps."
+          For my job I have had to adapt to a 
+          lot of different tasks including working with google analytics, 
+          google tag manager, amazon web services and our own dashboard 
+          software. I fill the role of both web development and IT support. 
+          Working in this role helped me develop skills to quickly and 
+          effectively search problems even in software I am not familiar 
+          with and provide my team with technical assistance. I learn 
+          quickly and on the fly while using precautions to prevent mis-steps.
         </p>
         <img class="center-image" src="classic-about3.jpeg">
       <h2 class="h2 center">Projects</h2>

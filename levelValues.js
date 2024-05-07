@@ -118,12 +118,12 @@ let home = {
       top: 100,
     },
     {
-      text: "I AM A FRONT END DEVELOPER",
+      text: "I AM A FULL STACK DEVELOPER",
       left: 420,
       top: 150,
     },
     {
-      text: "WITH 2 YEARS EXPERIENCE",
+      text: "WITH 6 YEARS EXPERIENCE",
       left: 80,
       top: 300,
     },
@@ -133,7 +133,7 @@ let home = {
       top: 400,
     },
     {
-      text: "WRITING REACT CODE",
+      text: "WRITING REACT AND NODEJS CODE",
       left: 300,
       top: 500,
     },
@@ -199,7 +199,7 @@ let pipes = [
   {
     name: "about",
     pipe: aboutMePipe,
-    top: 150,
+    top: 300,
     left: window.innerWidth - 163,
   },
   {

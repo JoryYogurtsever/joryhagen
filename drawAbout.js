@@ -46,7 +46,9 @@ function animateAbout() {
     about.finalAnimationDone = true;
   }
   if (activeScene === 'about') {
+    setTimeout(() => {
       window.requestAnimationFrame(animateAbout)
+    }, 1000 / 60 )
   }
 }
 let line1 = 0
@@ -114,7 +116,7 @@ function resizeAboutText() {
     about.modal.left = 0;
     about.modal.textmiddle = window.innerWidth/2 - 10;
     about.lines = [
-        "I'm Jory, a 30 year old Front-End",
+        "I'm Jory, a 34 year old Full-Stack",
         "Developer from Edmonton Canada.",
         "I have a bachelor's degree from",
         "the University of Alberta with",
@@ -123,11 +125,11 @@ function resizeAboutText() {
         "puzzles and problem solving, I",
         "like to write in my free time.",
         "I've been working as a Front-End",
-        "Developer for 2 years. I've been a",
-        "digital nomad for the past 4 years.",
+        "Developer for 6 years. I've been a",
+        "digital nomad for the past 9 years.",
         "In 2015 I went to Ankara, Turkey",
         "on a university exchange program.",
-        "That's where I met my girlfriend,",
+        "That's where I met my wife,",
         "since then we've lived in many",
         "places. First we moved to Taiwan,",
         "and taught ESL, then we moved to",
@@ -147,7 +149,7 @@ function resizeAboutText() {
     about.modal.left = 0;
     about.modal.textmiddle = window.innerWidth/2 - 10;
     about.lines = [
-        "I'm Jory, a 30 year old Front-End",
+        "I'm Jory, a 34 year old Front-End",
         "Developer from Edmonton Canada.",
         "I have a bachelor's degree from",
         "the University of Alberta with",
@@ -155,12 +157,12 @@ function resizeAboutText() {
         "Mathematics. I have a love of",
         "puzzles and problem solving, I",
         "like to write in my free time.",
-        "I've been working as a Front-End",
-        "Developer for 2 years. I've been a",
-        "digital nomad for the past 4 years.",
+        "I've been working as a Full-Stack",
+        "Developer for 6 years. I've been a",
+        "digital nomad for the past 9 years.",
         "In 2015 I went to Ankara, Turkey",
         "on a university exchange program.",
-        "That's where I met my girlfriend,",
+        "That's where I met my wife,",
         "since then we've lived in many",
         "places. First we moved to Taiwan,",
         "and taught ESL, then we moved to",

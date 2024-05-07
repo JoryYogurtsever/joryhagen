@@ -65,7 +65,9 @@ function animateHome() {
   }
     animatePlayer()
   if (activeScene === 'home') {
-    window.requestAnimationFrame(animateHome)
+    setTimeout(() => {
+      window.requestAnimationFrame(animateHome)
+    }, 1000 / 60 )
   }
 }
 
